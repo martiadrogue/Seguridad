@@ -7,7 +7,7 @@
 	"type": "project",
 	"repositories": [
 			{
-				"type": "vcs",
+				"type": "git",
 				"url": "https://github.com/xavi75/mpwarfwk"
 			}
 	],
