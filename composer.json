@@ -1,6 +1,6 @@
 
 {
-    "name": "xavi75/mpwarfwk-standard-edition",
+    "name": "xavi75/mpwarfwk",
     "description": "A MVC framework.",
     "type": "library",
     "keywords": ["framework", "mvc"],
