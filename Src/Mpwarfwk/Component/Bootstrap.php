@@ -1,6 +1,6 @@
 <?php 
 
-namespace src\Mpwarfwk\Component;
+namespace Mpwarfwk\Component;
 //use \Src\Controllers;
 
 class Bootstrap {
