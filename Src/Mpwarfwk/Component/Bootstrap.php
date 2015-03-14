@@ -1,21 +1,23 @@
 <?php 
 
 namespace Mpwarfwk\Component;
-//use \Src\Controllers;
 
 class Bootstrap {
+
+private $debugBar = false;
     
-    public function __construct() {
-        echo "<h2>Hello World</h2>";
-    }
+public function __construct($debugBar) {
+    echo "Estoy en Bootstrap - ";
+    $this->debugBar = $debugBar;
+}
 
 public function execute(){
 
 	$request = Request::returnRequest();
 	$routing = new Routing();
 	$controlerName = $routing->handle($request);
-	echo $controlerName;
+	//echo $controlerName;
 	$controler = new $controlerName();
-	$controller->build();
+	$controler->build();
 	}
 }
