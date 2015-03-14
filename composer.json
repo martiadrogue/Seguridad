@@ -6,7 +6,8 @@
     "homepage": "https://github.com/xavi75/mpwarfwk",
     "type": "project",
     "require": {
-    "php": ">=5.4.0"
+    "php": ">=5.4.0",
+    "symfony/yaml": "2.6.*"
     },
     "minimum-stability": "dev",
     "autoload": {
