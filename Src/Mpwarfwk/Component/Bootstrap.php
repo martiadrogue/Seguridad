@@ -1,6 +1,7 @@
 <?php 
 
 namespace Mpwarfwk\Component;
+use Mpwarfwk\Routing\Routing;
 
 class Bootstrap {
 
@@ -13,22 +14,18 @@ public function __construct($environment, $debugBar) {
     $this->ENVIRONMENT = $environment;
 }
 
-public function execute(){
+public function execute($request){
 
-	$request = new Request();
-	$request->createFromGlobals();
-	$url = $request->returnUrl();
-	
-	if (is_null($url)){
-		////pendiente crear una view para mostrar error 404  header("HTTP/1.0 404 Not Found");
-		echo "ERROR!!!";
-  		die();	
-	}
+	//$request = new Request(new Session());
 
 	$routing = new Routing();
-	$controllerActionId = $routing->handle($url);
-	$controler = new $controllerActionId["controllerRoute"]();
-	$controler->build();
+	$routingObject = $routing->createRoutingObject($request);
+	
+	$controllerName = $routingObject->routeToController();
+	$actionDefault = $routingObject->actionDefault();
+
+	$controler = new $controllerName();
+	$controler->$actionDefault();
 
 	}
 }
