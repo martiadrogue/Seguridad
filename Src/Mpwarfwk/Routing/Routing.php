@@ -3,6 +3,7 @@
 namespace Mpwarfwk\Routing;
 use Mpwarfwk\Http\Request;
 use Symfony\Component\Yaml\Parser;
+use Exception;
 
 class Routing {
 
@@ -30,9 +31,7 @@ class Routing {
 			return $routingObject;
 		}
 		//return "\Controllers\Home\Home";
-		//pendiente crear una view para mostrar error 404  header("HTTP/1.0 404 Not Found");
-		echo "ERROR!!";
-		die();
+		throw new Exception(' LA RUTA QUE ME PIDES NO EXISTE !!');
 	}
 }
 
