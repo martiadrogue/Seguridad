@@ -8,8 +8,8 @@ use Mpwarfwk\Http\Response;
 
 class ErrorController extends BaseController{
     
-    const ROUTE_TO_ERROR_TEMPLATE = "../src/Templates/Error/Error.Error.tpl";
-    //const ROUTE_TO_ERROR_TEMPLATE = "../Mpwarfwk/Exceptiontemplates/Error.Error.tpl";
+    //const ROUTE_TO_ERROR_TEMPLATE = "../src/Templates/Error/Error.Error.tpl";
+    const ROUTE_TO_ERROR_TEMPLATE = "../vendor/xavi75/mpwarfwk/Src/Mpwarfwk/ExceptionTemplates/Error.error.tpl";
 
     public function __construct() {
     	parent::__construct();
