@@ -11,12 +11,12 @@ class TemplateSmarty implements TemplateInterface {
         $this->smartyView = new \Smarty();
     }
 
-    public function render($routeToTemplate){
+    public function render($routeToTemplate, $variables = null){
 
         return $this->smartyView->fetch($routeToTemplate);
     }
 
-    public function assignVars(Array $variables){
+    public function assignVars($variables){
 
         foreach ($variables as $key => $value){
 

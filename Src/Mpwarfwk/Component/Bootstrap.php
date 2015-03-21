@@ -26,7 +26,8 @@ class Bootstrap {
 		try {
 			$routingObject = $routing->createRoutingObject($request);
 		} catch (Exception $e) {
-	        $this->controllerNotFound($e->getMessage());
+	        $response = $this->handleError($e->getMessage(), $this->ENVIRONMENT);
+	        return $response;
     	}
 
 
@@ -37,17 +38,23 @@ class Bootstrap {
 			$action = $request->url->returnParam(self::ACTION_NAME);
 		}
 
-		$controler = new $controllerName($request);
-		$response = $controler->$action();
-		$response->send();
+		$controler = new $controllerName();
+
+		try {
+		$response = $controler->$action($request);
+		} catch (Exception $e) {
+	        $response = $this->handleError($e->getMessage(), $this->ENVIRONMENT);
+	        return $response;
+    	}
+
+		return $response;
 	}
 
-	private function controllerNotFound($message){
+	private function handleError($message, $environment){
 
 		$controler = new ErrorController();
-		$response = $controler->error($message);
-		$response->send();
-		die();
+		$response = $controler->error($message, $environment);
+		return $response;
 
 	}
 }

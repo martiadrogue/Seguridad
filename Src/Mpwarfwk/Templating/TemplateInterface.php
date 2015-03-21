@@ -4,7 +4,7 @@ namespace Mpwarfwk\Templating;
 
 interface TemplateInterface {
 
-    public function render($template);
+    public function render($template, $variables);
 
-    public function assignVars(Array $variables);
+    public function assignVars($variables);
 }
