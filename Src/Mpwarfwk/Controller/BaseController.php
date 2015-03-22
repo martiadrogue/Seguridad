@@ -1,11 +1,14 @@
 <?php
 
 namespace Mpwarfwk\Controller;
+use Mpwarfwk\Container\Container;
 
 abstract class BaseController {
-    
-    public function __construct() {
-        echo "Estoy en la clase abstracta BaseController - ";
+
+	protected $container;
+
+    public function newContainer() {
+    	$this->container = new Container();
     }
         
 }

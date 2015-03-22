@@ -12,14 +12,11 @@ class Bootstrap {
 	private $ENVIRONMENT;
 	    
 	public function __construct($environment, $debugBar) {
-	    echo "Estoy en Bootstrap - ";
 	    $this->DEBUG_BAR = $debugBar;
 	    $this->ENVIRONMENT = $environment;
 	}
 
 	public function execute($request){
-
-		//$request = new Request(new Session());
 		
 		$routing = new Routing();
 		
@@ -55,6 +52,5 @@ class Bootstrap {
 		$controler = new ErrorController();
 		$response = $controler->error($message, $environment);
 		return $response;
-
 	}
 }

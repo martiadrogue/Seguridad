@@ -4,14 +4,15 @@
 </head>
 <body>
 
-<pre>
-Esta es la página de error hecha con template Smarty:
 
-404 PAGINA NO ENCONTRADA!!
+<h2>Esta es la página de error hecha con template Smarty:</h2>
 
-Tenemos un problema: {$errormessage}
+<h3>404 PAGINA NO ENCONTRADA!!</h3>
 
-</pre>
+<p>Tenemos un problema: {$errormessage}</p>
+
+<a href="/">Volver al inicio</a>
+
 
 </body>
 </html>

@@ -7,13 +7,20 @@ use PDO;
 class PdoDatabase {
 
 	private $database;
+	private $dbConnection;
 
 	public function __construct() {
 
-		$this->database = new PDO('mysql:dbname=framework;host=localhost', 'root', 'strongpassword');
+		$this->dbConnection = require('../src/Config/DatabaseConfig.php');
+
+		$db = $this->dbConnection["DATABASE"];
+		$host = $this->dbConnection["HOST"];
+		$user = $this->dbConnection["USER"];
+		$pwd = $this->dbConnection["PASSWORD"];
+					
+		$this->database = new PDO('mysql:dbname=' . $db . ';host=' . $host, $user, $pwd);
 	    $this->database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	    $this->database->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-	    echo " - estoy en la base de datos, de momento solo me ejecuto - ";
 	}
 
 	public function selectAllFromTable($table) {

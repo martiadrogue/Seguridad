@@ -11,7 +11,6 @@ class Routing {
 	private $controllerExists;
 	    
 	public function __construct() {
-	    echo "Ahora estoy en Routing - ";
 	    $this->controllerExists = false;
 	}
 
@@ -30,7 +29,6 @@ class Routing {
 		if ($this->controllerExists == true) {
 			return $routingObject;
 		}
-		//return "\Controllers\Home\Home";
 		throw new Exception(' LA RUTA QUE ME PIDES NO EXISTE !!');
 	}
 }
