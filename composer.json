@@ -1,9 +1,9 @@
 {
-    "name": "xavi75/mpwarfwk",
-    "description": "MPWAR Framework",
+    "name": "xavi75/Seguridad",
+    "description": "MPWAR Seguridad",
     "license": "Apache-2.0",
     "keywords": [],
-    "homepage": "https://github.com/xavi75/mpwarfwk",
+    "homepage": "https://github.com/xavi75/Seguridad",
     "type": "project",
     "require": {
     "php": ">=5.4.0",
