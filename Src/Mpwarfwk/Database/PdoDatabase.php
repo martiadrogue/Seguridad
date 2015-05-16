@@ -56,9 +56,9 @@ class PdoDatabase {
 		return $statement->execute();
 	}
 
-	public function deleteFromTable($table, $id, $value) {
+	public function deleteFromTable($table, $id) {
 
-		$statement = $this->database->prepare("DELETE FROM $table WHERE $id = '$value' LIMIT 1");
+		$statement = $this->database->prepare("DELETE FROM $table WHERE id = '$id' LIMIT 1");
 		return $statement->execute();
 	}
 
