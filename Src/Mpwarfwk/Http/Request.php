@@ -25,7 +25,8 @@ class Request {
 		$this->arrayUrl = $this->divideUrl($_SERVER['REQUEST_URI']);;
 		$this->url = new Url($this->arrayUrl, count($this->arrayUrl));
 
-		$_GET = $_POST = $_COOKIE = $_SERVER = $_FILES = array();
+		//$_GET = $_POST = $_COOKIE = $_SERVER = $_FILES = array();
+		$_GET = $_POST = $_SERVER = $_FILES = array();
 	}
 
 
