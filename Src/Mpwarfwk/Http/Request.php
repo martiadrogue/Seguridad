@@ -37,4 +37,25 @@ class Request {
 		array_shift($dividedURL);
 		return $dividedURL;
 	}
+	
+	public function cleanData( $input ) {
+	
+		echo $input;
+		
+		$input = trim( htmlentities( strip_tags( $input,"," ) ) );
+		
+		$invalid_characters = array("$", "%", "#", "<", ">", "|", ";", "&");
+		$input = str_replace($invalid_characters, "", $input);
+		
+		$search = array(
+			'@<script[^>]*?>.*?</script>@si',   // Strip out javascript
+			'@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+			'@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+			'@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
+		  );
+
+		$output = preg_replace($search, '', $input);
+		//echo 'EOOOO!!!: ' . $output . 'FI';
+		return $output;
+	}
 }
