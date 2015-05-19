@@ -8,6 +8,7 @@ use Exception;
 class Bootstrap {
 
 	const ACTION_NAME = 1;
+	const ACCOUNT_VERIFY_PATH = "Controllers\AccountVerification\AccountVerification";
 	private $DEBUG_BAR;
 	private $ENVIRONMENT;
 	    
@@ -31,7 +32,7 @@ class Bootstrap {
 		$controllerName = $routingObject->routeToController();
 		$action = $routingObject->actionDefault();
 
-		if($request->url->numberOfValuesStored() > 1){
+		if($request->url->numberOfValuesStored() > 1 && $controllerName != self::ACCOUNT_VERIFY_PATH){
 			$action = $request->url->returnParam(self::ACTION_NAME);
 		}
 
