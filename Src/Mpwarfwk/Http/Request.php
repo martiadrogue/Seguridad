@@ -32,6 +32,7 @@ class Request {
 
 	public function divideUrl($requestUri) {
 		
+		//$requestUri = $this->cleanData($requestUri);
 		$requestUri = strtolower($requestUri);
 		$dividedURL = explode("/", $requestUri);
 		array_shift($dividedURL);
