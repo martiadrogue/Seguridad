@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Mpwarfwk\Component;
 use Mpwarfwk\Routing\Routing;
@@ -11,16 +11,16 @@ class Bootstrap {
 	const ACCOUNT_VERIFY_PATH = "Controllers\AccountVerification\AccountVerification";
 	private $DEBUG_BAR;
 	private $ENVIRONMENT;
-	    
+
 	public function __construct($environment, $debugBar) {
 	    $this->DEBUG_BAR = $debugBar;
 	    $this->ENVIRONMENT = $environment;
 	}
 
 	public function execute($request){
-		
+
 		$routing = new Routing();
-		
+
 		try {
 			$routingObject = $routing->createRoutingObject($request);
 		} catch (Exception $e) {

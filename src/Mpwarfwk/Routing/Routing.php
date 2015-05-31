@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Mpwarfwk\Routing;
 use Mpwarfwk\Http\Request;
@@ -9,7 +9,7 @@ class Routing {
 
 	const CONTROLLER_NAME = 0;
 	private $controllerExists;
-	    
+
 	public function __construct() {
 	    $this->controllerExists = false;
 	}
@@ -18,10 +18,10 @@ class Routing {
 
 		$yaml = new Parser();
 		$routingList = $yaml->parse(file_get_contents('../src/Config/routing.yml'));
-		
+
 		foreach ($routingList as $actualRoute){
-			if (strtolower($actualRoute['path']) == '/' . $request->url->returnParam(self::CONTROLLER_NAME)){ 
-				$routingObject = new routingObject($actualRoute['resource'], $actualRoute['actiondefault']);
+			if (strtolower($actualRoute['path']) == '/' . $request->url->returnParam(self::CONTROLLER_NAME)){
+				$routingObject = new RoutingObject($actualRoute['resource'], $actualRoute['actiondefault']);
 				$this->controllerExists = true;
 			}
 		}
@@ -32,9 +32,3 @@ class Routing {
 		throw new Exception(' LA RUTA QUE ME PIDES NO EXISTE !!');
 	}
 }
-
-
-
-
-
-
